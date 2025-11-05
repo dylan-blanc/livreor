@@ -305,6 +305,7 @@ function regenerate_csrf_token() {
 // ==================================================================
 
 
+
 function clean_input($data)
 {
     // Accepter null et autres types
@@ -369,10 +370,16 @@ function is_logged_in()
 
 function sess_destroy()
 {
-   if(session_status() === PHP_SESSION_ACTIVE) {
-       session_unset();
-       session_destroy();
-   }
-    redirect('');  
+    // Poser le message avant de supprimer les informations d'auth
     set_flash('success', 'Déconnexion réussie !');
+
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        // Ne pas détruire toute la session pour préserver les flash messages
+        unset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['last_activity']);
+        // Régénérer l'ID pour invalider l'ancienne session côté navigateur
+        session_regenerate_id(true);
+    }
+
+    // Redirection vers l'accueil
+    redirect('');
 }

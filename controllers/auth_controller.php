@@ -79,15 +79,34 @@ function auth_connexion()
 
         $user = get_user_by_username($username);
         if ($user && password_verify($password, $user['password'])) {
+            // Sécuriser la session à la connexion
+            if (session_status() === PHP_SESSION_ACTIVE) {
+                session_regenerate_id(true);
+            }
 
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
+            // Stocker les infos minimales en session
+            $_SESSION['user_id'] = (int)$user['id'];
+            $_SESSION['username'] = $user['login'] ?? $username;
+            $_SESSION['last_activity'] = time();
+
             set_flash('success', 'Connexion réussie !');
+            // Rediriger vers la page d'accueil (ou tableau de bord)
+            redirect('');
         } else {
             set_flash('error', 'Nom d\'utilisateur ou mot de passe incorrect.');
         }
+        
     }
 
     load_view_with_layout('auth/connexion', $data);
+}
+
+/**
+ * Route: /auth/deconnexion
+ */
+function auth_deconnexion()
+{
+    // Utilise le helper pour nettoyer la session et rediriger
+    sess_destroy();
 }
 

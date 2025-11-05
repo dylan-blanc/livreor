@@ -8,10 +8,11 @@ function get_username_by_id($user_id) {
     return $user ? $user['login'] : null;
 }
 
-function get_username_by_username($username) {
+function get_username_from_login($username) {
     $pdo = db_connect();
     $stmt = $pdo->prepare("SELECT login FROM utilisateurs WHERE login = :login");
     $stmt->execute(['login' => $username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     return $user ? $user['login'] : null;
 }
+
