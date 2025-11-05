@@ -23,21 +23,8 @@
  * @return string La chaîne sécurisée
  * 
  */
-function escape($string) {
-    return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
-}
-
-/**
- * Affiche directement une chaîne sécurisée (échappée)
- * 
- * Version raccourcie de echo escape($string)
- * Pratique pour les templates avec beaucoup d'affichages
- * 
- * @param string $string La chaîne à afficher de manière sécurisée
- * 
- */
 function e($string) {
-    echo escape($string);
+    return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
 }
 
 // ===============================================
@@ -54,10 +41,9 @@ function e($string) {
  * @return string L'URL absolue complète
  * 
  */
-function url($path = '') {
-    $base_url = rtrim(BASE_URL, '/');
-    $path = ltrim($path, '/');
-    return $base_url . '/' . $path;
+function url($path = '')
+{
+    return rtrim(BASE_URL, '/') . '/' . ltrim($path, '/');
 }
 
 /**
@@ -312,4 +298,81 @@ function regenerate_csrf_token() {
     // Supprimer l'ancien token et en générer un nouveau
     unset($_SESSION['csrf_token']);
     return csrf_token();
+}
+
+// ==================================================================
+// ============================  AJOUTS  ============================
+// ==================================================================
+
+
+function clean_input($data)
+{
+    // Accepter null et autres types
+    $data = (string)$data;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
+}
+
+function validate_name($name)
+{
+    // Entre 2 et 50 caractères
+    if (strlen($name) < 2 || strlen($name) > 50) return false;
+
+    // Lettres, espaces et tirets uniquement
+    if (!preg_match('/^[a-zA-ZÀ-ÿ\s\-]+$/', $name)) return false;
+
+    return true;
+}
+
+function validate_password($password)
+{
+    // Minimum 5 caractères
+    if (strlen($password) < 5) return false;
+
+    // Au moins 1 minuscule
+    if (!preg_match('/[a-z]/', $password)) return false;
+
+    // Au moins 1 majuscule  
+    if (!preg_match('/[A-Z]/', $password)) return false;
+
+    // Au moins 1 chiffre
+    if (!preg_match('/\d/', $password)) return false;
+
+    return true;
+}
+
+function format_username($username)
+{
+    $username = trim($username);
+    // Gérer les espaces (pour utilisateurs avec plusieurs Noms)
+    $username = ucwords(strtolower($username));
+    // Gérer les tirets (pour les utilisateurs avec des prénoms composés)
+    $username = preg_replace_callback('/-([a-z])/', function ($matches) {
+        return '-' . strtoupper($matches[1]);
+    }, $username);
+    return $username;
+}
+
+function is_logged_in()
+{
+    if (!isset($_SESSION['user_id'])) {
+        return false;
+    }
+
+    // Mettre à jour le timestamp de dernière activité
+    $_SESSION['last_activity'] = time();
+
+    return true;
+}
+
+function sess_destroy()
+{
+   if(session_status() === PHP_SESSION_ACTIVE) {
+       session_unset();
+       session_destroy();
+   }
+    redirect('');  
+    set_flash('success', 'Déconnexion réussie !');
 }

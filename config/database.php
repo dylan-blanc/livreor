@@ -5,13 +5,14 @@
 
 // Configuration de la base de données
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'mvc_starter');
+define('DB_NAME', 'livreor');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+define('DB_CHARSET', 'utf8mb4');
 
 // Configuration de l'application
-define('BASE_URL', 'https://mvc-starter.dev');
-define('APP_NAME', 'PHP MVC Starter');
+define('BASE_URL', 'http://localhost/livreor/public/');
+define('APP_NAME', 'Livreor');
 define('APP_VERSION', '1.0.0');
 
 // Configuration des chemins (seulement si ROOT_PATH n'est pas déjà défini)

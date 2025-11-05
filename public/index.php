@@ -10,3 +10,4 @@ require_once '../bootstrap.php';
 
 // Lancer le routeur
 route();
+

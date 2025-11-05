@@ -37,7 +37,12 @@ body {
     padding: 0 20px;
 }
 
-/* Header et Navigation */
+/*  
+*
+* ***************************************************  HEADER, NAVIGATION  **************************************************
+*
+*/
+
 .header {
     background: var(--white);
     box-shadow: var(--shadow);
@@ -83,7 +88,12 @@ body {
     padding: 2rem 0;
 }
 
-/* Hero Section */
+/*  
+*
+* ***************************************************  HERO SECTION  **************************************************
+*
+*/
+
 .hero {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     color: var(--white);
@@ -158,91 +168,12 @@ body {
     justify-content: center;
 }
 
-/* Sections */
-.features {
-    padding: 4rem 0;
-    background: var(--white);
-}
+/*  
+*
+* ***************************************************  HEADER  **************************************************
+*
+*/
 
-.features h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    color: var(--text-color);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.feature-card {
-    text-align: center;
-    padding: 2rem;
-    border-radius: 0.75rem;
-    background: var(--background-color);
-    border: 1px solid var(--border-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.feature-card i {
-    font-size: 3rem;
-    color: var(--success-color);
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Getting Started */
-.getting-started {
-    padding: 4rem 0;
-    background: var(--background-color);
-}
-
-.getting-started h2 {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-}
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.step {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 0.75rem;
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.step-number {
-    width: 60px;
-    height: 60px;
-    background: var(--primary-color);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0 auto 1rem;
-}
-
-/* Page Header */
 .page-header {
     background: var(--white);
     padding: 2rem 0;
@@ -252,47 +183,6 @@ body {
 .page-header h1 {
     font-size: 2.5rem;
     color: var(--text-color);
-}
-
-/* Content Grid */
-.content {
-    padding: 2rem 0;
-}
-
-.content-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-}
-
-.content-main {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow);
-}
-
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.info-box {
-    background: var(--white);
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow);
-}
-
-.info-box h4 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-/* Formulaires */
-.form-group {
-    margin-bottom: 1.5rem;
 }
 
 .form-group label {
@@ -319,53 +209,12 @@ body {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
-/* Authentification */
-.auth-container {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
+/*  
+*
+* ***************************************************  MESSAGE FLASH  **************************************************
+*
+*/
 
-.auth-card {
-    background: var(--white);
-    padding: 3rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-lg);
-    width: 100%;
-    max-width: 400px;
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.auth-header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.auth-footer {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.auth-footer a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.auth-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Messages Flash */
 .alert {
     padding: 1rem;
     border-radius: 0.5rem;
@@ -437,20 +286,39 @@ body {
     flex-wrap: wrap;
 }
 
-/* Footer */
+/*  
+*
+* ***************************************************  FOOTER  **************************************************
+*
+*/
+
 .footer {
     background: var(--text-color);
     color: var(--white);
     text-align: center;
-    padding: 2rem 0;
     margin-top: auto;
+    height: 100px;
+    padding: 0;
 }
 
 .footer-content p {
     margin-bottom: 0.5rem;
 }
 
-/* Code blocks */
+.footer-content li {
+    margin: 0 10px;
+    list-style: none;
+}
+
+.footer-content a {
+color: rgb(198, 198, 232);}
+
+/*  
+*
+* ***************************************************  CODE BLOC  **************************************************
+*
+*/
+
 pre {
     background: #f8f8f8;
     padding: 1rem;
@@ -467,7 +335,12 @@ code {
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/*  
+*
+* ***************************************************  RESPONSIVE  **************************************************
+*
+*/
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -497,14 +370,6 @@ code {
         padding: 2rem;
     }
     
-    .features h2,
-    .getting-started h2 {
-        font-size: 2rem;
-    }
-    
-    .steps {
-        grid-template-columns: 1fr;
-    }
     
     .error-actions {
         flex-direction: column;
