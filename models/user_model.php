@@ -74,6 +74,19 @@ function create_user($username, $password)
     return (int) db_last_insert_id();
 }
 
+function update_user($username, $password)
+{
+    // Toujours hasher le mot de passe côté serveur
+    $password_hash = password_hash($password, PASSWORD_BCRYPT);
+
+    // Retourner le succès/échec de l'UPDATE (bool)
+    return db_execute('UPDATE utilisateurs SET login = :login, password = :password WHERE id = :id', [
+        'login' => $username,
+        'password' => $password_hash,
+        'id' => $_SESSION['user_id'],
+    ]);
+}
+
 // function auth_register($username, $password)
 // {
 //     if (user_exists($username)) {

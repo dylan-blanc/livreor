@@ -246,7 +246,7 @@ if (isset($_SESSION['username'])) {
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="<?= url(); ?>">Accueil</a></li>
                     <?php if (is_logged_in()): ?>
-                        <li><a href="<?= url('user/profil'); ?>">Profil</a></li>
+                        <li><a href="<?= url('auth/profil'); ?>">Profil</a></li>
                         <li><a href="<?= url('auth/deconnexion'); ?>">Déconnexion</a></li>
                     <?php else: ?>
                         <li><a href="<?= url('auth/inscription'); ?>">Inscription</a></li>

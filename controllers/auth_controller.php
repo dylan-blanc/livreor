@@ -95,10 +95,71 @@ function auth_connexion()
         } else {
             set_flash('error', 'Nom d\'utilisateur ou mot de passe incorrect.');
         }
-        
     }
 
     load_view_with_layout('auth/connexion', $data);
+}
+
+function auth_profil()
+{
+    // Préparation des données pour la vue
+    $data = [
+        'title' => 'profil'
+    ];
+
+
+    // === TRAITEMENT DU FORMULAIRE DE MISE À JOUR DE PROFIL ===
+
+    if (is_post()) {
+        // Récupération et nettoyage des données du formulaire
+        $username = clean_input(post('username'));
+        $password = post('password');
+        $confirm_password = post('confirm_password');
+
+        // Vérification des champs obligatoires
+        if (empty($username) || empty($password) || empty($confirm_password)) {
+            set_flash('error', 'Tous les champs sont obligatoires.');
+
+            // Validation du format du nom d'utilisateur (2-50 caractères, lettres uniquement)
+        } elseif (!validate_name($username)) {
+            set_flash('error', 'Le nom d\'utilisateur doit contenir entre 2 et 50 caractères, lettres, espaces et tirets uniquement.');
+
+            // Validation du mot de passe
+        } elseif (!validate_password($password)) {
+            set_flash('error', 'Le mot de passe doit contenir au moins 5 caractères avec majuscule, minuscule et chiffre.');
+
+            // Vérification de la correspondance des mots de passe
+        } elseif ($password !== $confirm_password) {
+            set_flash('error', 'Les mots de passe ne correspondent pas.');
+
+            // Vérification de l'unicité de l'utilisateur
+        } elseif (($u = get_user_by_username($username)) && (int)$u['id'] !== (int)$_SESSION['user_id']) {
+            set_flash('error', 'Le nom d\'utilisateur est déjà utilisé par un autre compte.');
+        } else {
+            // === TRAITEMENT RÉUSSI - MISE À JOUR DU PROFIL ===
+
+            // Formatage des noms (première lettre majuscule, reste minuscule)
+            $username = format_username($username);
+
+            // === MISE À JOUR DE L'UTILISATEUR EN BASE ===
+            // Le modèle `update_user` attend (username, password) et gère le hash en interne
+            $updated = update_user($username, $password);
+
+            if ($updated) {
+
+                if (session_status() === PHP_SESSION_ACTIVE) {
+                    session_regenerate_id(true);
+                }
+
+                $_SESSION['username'] = $username;
+                set_flash('success', 'Profil mis à jour avec succès !');
+                redirect('auth/profil');
+            } else {
+                set_flash('error', 'Erreur lors de la mise à jour du profil.');
+            }
+        }
+    }
+    load_view_with_layout('auth/profil', $data);
 }
 
 /**
@@ -106,7 +167,5 @@ function auth_connexion()
  */
 function auth_deconnexion()
 {
-    // Utilise le helper pour nettoyer la session et rediriger
     sess_destroy();
 }
-

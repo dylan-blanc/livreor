@@ -1,3 +1,8 @@
+/*
+* ****************************************************** CONNEXION/INSCRIPTION ******************************************************
+*/
+
+
 .register-container {
   max-width: 400px;
   margin: 40px auto;
@@ -56,3 +61,150 @@
 .register-btn:hover {
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
+
+
+/*
+* ****************************************************** PROFIL ******************************************************
+*/
+/* Conteneur principal */
+.profil-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* Carte profil */
+.profile-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.12);
+  overflow: hidden;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px;
+  background: #f4f6fb;
+  border-bottom: 1px solid #ebeffa;
+}
+
+.profile-info .username {
+  margin: 0 0 6px 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.profile-info .meta {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 14px;
+  color: #687089;
+  font-size: 0.95rem;
+}
+
+/* Tabs */
+.profile-tabs {
+  padding: 0 18px 22px 18px;
+}
+
+.tab-input { display: none; }
+
+.tab-label {
+  display: inline-block;
+  padding: 12px 18px;
+  margin: 16px 6px 0 0;
+  border-radius: 8px 8px 0 0;
+  background: #eef2ff;
+  color: #4f46e5;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #e3e8ff;
+  border-bottom: none;
+  user-select: none;
+}
+
+/* État actif des onglets */
+#tab-edit:checked + label,
+#tab-history:checked + label {
+  background: #fff;
+  color: #333;
+  border-color: #dfe3ff;
+  box-shadow: 0 -2px 8px rgba(102,126,234,0.08);
+}
+
+.tab-panels {
+  border: 1px solid #dfe3ff;
+  border-radius: 0 10px 10px 10px;
+  background: #fff;
+  margin-top: -1px;
+  padding: 18px;
+}
+
+.tab-content { display: none; }
+
+/* Affichage conditionnel des panneaux */
+#tab-edit:checked ~ .tab-panels .edit { display: block; }
+#tab-history:checked ~ .tab-panels .history { display: block; }
+
+.section-title {
+  margin: 6px 0 16px 0;
+  color: #667eea;
+  font-size: 1.15rem;
+}
+
+/* Formulaire d'édition */
+.edit-form { max-width: 640px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.field label { display: block; margin-bottom: 6px; color: #333; font-weight: 500; }
+.field .form-input { width: 100%; }
+
+.actions { margin-top: 10px; }
+.helper-text { margin-top: 8px; color: #6b7280; font-size: 0.9rem; }
+
+/* Historique */
+.history-list {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.history-item {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  background: #f8fafc;
+  border: 1px solid #ebeffa;
+  border-radius: 8px;
+}
+
+.history-item {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #667eea;
+}
+
+.item-body { display: flex; justify-content: space-between; gap: 10px; }
+.item-title { color: #111827; font-weight: 600; }
+.item-date { color: #6b7280; font-size: 0.9rem; }
+
+/* Responsive */
+@media (max-width: 720px) {
+  .profile-header { align-items: flex-start; }
+  .form-row { grid-template-columns: 1fr; }
+  .item-body { flex-direction: column; align-items: flex-start; }
+}
+

@@ -308,7 +308,6 @@ function regenerate_csrf_token() {
 
 function clean_input($data)
 {
-    // Accepter null et autres types
     $data = (string)$data;
     $data = trim($data);
     $data = stripslashes($data);
@@ -362,7 +361,7 @@ function is_logged_in()
         return false;
     }
 
-    // Mettre à jour le timestamp de dernière activité
+    // Mettre à jour la dernière activité
     $_SESSION['last_activity'] = time();
 
     return true;
@@ -370,16 +369,12 @@ function is_logged_in()
 
 function sess_destroy()
 {
-    // Poser le message avant de supprimer les informations d'auth
     set_flash('success', 'Déconnexion réussie !');
 
     if (session_status() === PHP_SESSION_ACTIVE) {
-        // Ne pas détruire toute la session pour préserver les flash messages
         unset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['last_activity']);
         // Régénérer l'ID pour invalider l'ancienne session côté navigateur
         session_regenerate_id(true);
     }
-
-    // Redirection vers l'accueil
     redirect('');
 }

@@ -5,7 +5,7 @@
 
 <div class="register-container">
     <h2 class="register-title">Connexion</h2>
-    <form class="login-form" action="" method="post">
+    <form class="register-form" action="" method="post">
         <div class="form-group">
             <label for="username">Nom d'utilisateur</label>
             <input class="form-input" type="text" id="username" name="username" required>
