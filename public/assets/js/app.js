@@ -237,4 +237,4 @@ function ajax(url, options = {}) {
             showNotification('Une erreur est survenue', 'error');
             throw error;
         });
-} 
+}

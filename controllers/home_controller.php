@@ -30,9 +30,9 @@ function home_chat()
 {
     $data = [
         'title' => 'Chat',
-        'message' => 'Bienvenue sur le chat !',
-
     ];
+
+    $data['messages'] = get_all_chat_messages();
 
     if (is_post()) {
         if (!is_logged_in()) {
@@ -44,13 +44,13 @@ function home_chat()
         $user_id = $_SESSION['user_id'];
 
         if (!empty($message)) {
-            if (save_chat_message($user_id, $message)) {
+            if (save_chat_message($user_id, $message) && strlen($message) <= 800) {
                 set_flash('success', 'Message envoyé avec succès !');
             } else {
-                set_flash('error', 'Erreur lors de l\'envoi du message. Veuillez réessayer.');
+                set_flash('error', 'Erreur lors de l\'envoi du message. Ne pas dépasser 800 caractères.');
             }
         } else {
-            set_flash('error', 'Le message ne peut pas être vide.');
+            set_flash('error', 'Le message ne peut pas être vide');
         }
 
         redirect('home/chat');

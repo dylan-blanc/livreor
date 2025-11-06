@@ -386,25 +386,15 @@ function sess_destroy()
 * ****************************************************** CHAT ******************************************************
 */
 
-function is_chat_message_valid($message)
-{
-    $message = trim($message);
+// function is_chat_message_valid($message)
+// {
+//     $message = trim($message);
 
-    // Vérifier la longueur minimale et maximale
-    if (strlen($message) < 1 || strlen($message) > 500) {
-        return false;
-    }
+//     // Vérifier la longueur minimale et maximale
+//     if (strlen($message) < 1 || strlen($message) > 800) {
+//         return false;
+//     }
 
-    return true;
-}
+//     return true;
+// }
 
-function clean_chat_message($message)
-{
-    // Nettoyer le message pour éviter les injections XSS
-    return e($message);
-}
-
-function format_chat_timestamp($timestamp)
-{
-    return date('d/m/Y H:i', (int)$timestamp);
-}
