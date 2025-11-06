@@ -304,7 +304,9 @@ function regenerate_csrf_token() {
 // ============================  AJOUTS  ============================
 // ==================================================================
 
-
+/*
+* ****************************************************** AUTHENTIFICATION ******************************************************
+*/
 
 function clean_input($data)
 {
@@ -377,4 +379,32 @@ function sess_destroy()
         session_regenerate_id(true);
     }
     redirect('');
+}
+
+
+/*
+* ****************************************************** CHAT ******************************************************
+*/
+
+function is_chat_message_valid($message)
+{
+    $message = trim($message);
+
+    // Vérifier la longueur minimale et maximale
+    if (strlen($message) < 1 || strlen($message) > 500) {
+        return false;
+    }
+
+    return true;
+}
+
+function clean_chat_message($message)
+{
+    // Nettoyer le message pour éviter les injections XSS
+    return e($message);
+}
+
+function format_chat_timestamp($timestamp)
+{
+    return date('d/m/Y H:i', (int)$timestamp);
 }
