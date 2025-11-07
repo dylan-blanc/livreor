@@ -1,9 +1,4 @@
 <?php
-// Contrôleur Auth compatible avec le routeur (fonctions auth_*)
-
-/**
- * Route: /auth/inscription
- */
 
 function auth_inscription()
 {
@@ -63,9 +58,6 @@ function auth_inscription()
     load_view_with_layout('auth/inscription', $data);
 }
 
-/**
- * Route: /auth/connexion
- */
 
 function auth_connexion()
 {
@@ -107,8 +99,12 @@ function auth_profil()
         'title' => 'profil'
     ];
 
+    if (isset($_SESSION['user_id'])) {
+        $data['messages'] = get_message_by_user_id($_SESSION['user_id']);
+    } else {
+        $data['messages'] = [];
+    }
 
-    // === TRAITEMENT DU FORMULAIRE DE MISE À JOUR DE PROFIL ===
 
     if (is_post()) {
         // Récupération et nettoyage des données du formulaire
@@ -161,6 +157,8 @@ function auth_profil()
     }
     load_view_with_layout('auth/profil', $data);
 }
+
+
 
 /**
  * Route: /auth/deconnexion

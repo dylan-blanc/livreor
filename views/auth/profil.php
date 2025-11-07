@@ -50,33 +50,19 @@
                 </section>
 
                 <section class="tab-content history">
-                    <h3 class="section-title">Historique</h3>
-                    <ul class="history-list">
-                        <li class="history-item">
-                            <div class="item-body">
-                                <span class="item-title">Connexion</span>
-                                <span class="item-date">Aujourd'hui</span>
+                    <h3 class="section-title">Historique de vos commentaires</h3>
+                    <?php if (!empty($messages)): ?>
+                        <?php foreach ($messages as $msg): ?>
+                            <div class="chat-message">
+                                <span class="chat-date">
+                                    <?= e('Posté le ' . (isset($msg['date_commentaire']) ? date('d/m/Y à H:i', strtotime($msg['date_commentaire'])) : '')) ?>
+                                </span>
+                                <p class="historique-message"><?= e($msg['commentaire']) ?></p>
                             </div>
-                        </li>
-                        <li class="history-item">
-                            <div class="item-body">
-                                <span class="item-title">Modification du profil</span>
-                                <span class="item-date">Hier</span>
-                            </div>
-                        </li>
-                        <li class="history-item">
-                            <div class="item-body">
-                                <span class="item-title">Nouveau message</span>
-                                <span class="item-date">Il y a 3 jours</span>
-                            </div>
-                        </li>
-                        <li class="history-item">
-                            <div class="item-body">
-                                <span class="item-title">Inscription</span>
-                                <span class="item-date">Il y a 2 semaines</span>
-                            </div>
-                        </li>
-                    </ul>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div>Aucun message pour le moment.</div>
+                    <?php endif; ?>
                 </section>
             </div>
         </div>

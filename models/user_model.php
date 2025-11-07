@@ -76,10 +76,8 @@ function create_user($username, $password)
 
 function update_user($username, $password)
 {
-    // Toujours hasher le mot de passe côté serveur
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    // Retourner le succès/échec de l'UPDATE (bool)
     return db_execute('UPDATE utilisateurs SET login = :login, password = :password WHERE id = :id', [
         'login' => $username,
         'password' => $password_hash,
@@ -87,12 +85,9 @@ function update_user($username, $password)
     ]);
 }
 
-// function auth_register($username, $password)
-// {
-//     if (user_exists($username)) {
-//         return false;
-//     } else {
-//         create_user($username, password_hash($password, PASSWORD_BCRYPT));
-//         return true;
-//     }
-// }
+function get_message_by_user_id($id_utilisateur)
+{
+    return db_select('SELECT * FROM commentaires WHERE id_utilisateur = :id_utilisateur', [
+        'id_utilisateur' => $id_utilisateur
+    ]);
+}
