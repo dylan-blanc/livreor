@@ -6,9 +6,10 @@
 // Configuration de la base de données
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'livreor');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_CHARSET', 'utf8mb4');
+define('DB_USER', 'livreoradmin');
+define('DB_PASS', '8zNs?93t6');
+define('DB_CHARSET', 'utf8mb4_general_ci'); // utf8mb4_general_ci // utf8mb4 // utf8mb4_unicode_ci
+
 
 // Configuration de l'application
 define('BASE_URL', 'http://localhost/livreor/public/');
