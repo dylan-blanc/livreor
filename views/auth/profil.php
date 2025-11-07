@@ -16,7 +16,6 @@
         </div>
 
         <div class="profile-tabs">
-            <!-- Onglets CSS uniquement -->
             <input type="radio" name="profile-tab" id="tab-edit" class="tab-input" checked>
             <label for="tab-edit" class="tab-label">Modifier le profil</label>
 
@@ -24,7 +23,6 @@
             <label for="tab-history" class="tab-label">Historique</label>
 
             <div class="tab-panels">
-                <!-- Panel modifier -->
                 <section class="tab-content edit">
                     <h3 class="section-title">Modifier mes informations</h3>
                     <form class="edit-form" method="post">
@@ -51,7 +49,6 @@
                     </form>
                 </section>
 
-                <!-- Panel historique -->
                 <section class="tab-content history">
                     <h3 class="section-title">Historique</h3>
                     <ul class="history-list">

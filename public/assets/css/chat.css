@@ -2,7 +2,7 @@ h2 {
     display: flex;
     justify-content: center;
     justify-items: center;
-    color: black;
+    color: white;
 }
 
 .chat-box {
@@ -10,6 +10,25 @@ h2 {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    border-radius: 10px;
+}
+
+.historique-messages {
+    color: ;
+
+}
+
+.chat-messages {
+    width: 80%;
+    height: 50%;
+    max-height: 300px;
+    border: 2px solid #bc0000;
+    border-radius: 4px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    overflow-x: scroll;
+    margin-bottom: 20px;
+    background-color: #ffffff;
 }
 
 .chat-form {
@@ -22,11 +41,10 @@ textarea {
     align-items: center;
     align-content: center;
     width: 500px;
-    height: 150px;
+    height: 100px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #bc0000;
     border-radius: 4px;
     font-size: 16px;
-    resize: both;
 }

@@ -6,13 +6,13 @@
 }
 
 :root {
-    --primary-color: #3b82f6;
-    --primary-hover: #2563eb;
+    --primary-color: #1f2937; /* #1f2937  #820000  #2563eb */
+    --primary-hover: #820000;
     --secondary-color: #6b7280;
     --success-color: #10b981;
     --error-color: #ef4444;
     --warning-color: #f59e0b;
-    --background-color: #f8fafc;
+    --background-color: #83838354;
     --text-color: #1f2937;
     --border-color: #e5e7eb;
     --white: #ffffff;
@@ -46,8 +46,7 @@ body {
 .header {
     background: var(--white);
     box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
+    top: 0; 
     z-index: 100;
 }
 
@@ -86,6 +85,11 @@ body {
 .main-content {
     flex: 1;
     padding: 2rem 0;
+    /* background: linear-gradient(180deg, var(--primary-color), var(--primary-hover)); */
+    background: linear-gradient(0.0turn, var(--primary-color), var(--primary-hover), var(--primary-color));
+
+
+
 }
 
 /*  
@@ -95,7 +99,6 @@ body {
 */
 
 .hero {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
     color: var(--white);
     padding: 4rem 0;
     text-align: center;
