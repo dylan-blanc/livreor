@@ -235,6 +235,9 @@ if (isset($_SESSION['username'])) {
 
 <body>
     <header class="header">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+        </div>
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-brand">
@@ -287,6 +290,9 @@ if (isset($_SESSION['username'])) {
             </div>
         </div>
     </footer>
+    <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+    </div>
 
     <script src="<?= url('assets/js/app.js'); ?>"></script>
     <script>

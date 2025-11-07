@@ -13,7 +13,8 @@
                     <div class="chat-message">
                         <span class="chat-date"><?= e('Posté le ' . $msg['date_commentaire_formatee']) . ' Par : ' ?></span>
                         <strong><?= e($msg['login']) ?> :</strong>
-                        <p class="historique-message"><?= e($msg['commentaire']) ?></p>
+                        <p><?= e($msg['commentaire']) ?></p>
+                   <p class="separate-line"></p>
 
                     </div>
                 <?php endforeach; ?>

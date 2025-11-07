@@ -1,6 +1,7 @@
 <?php $title = "Profil"; ?>
 <style>
     <?php include __DIR__ . '/../../public/assets/css/register.css'; ?>
+    <?php include __DIR__ . '/../../public/assets/css/chat.css'; ?>
 </style>
 
 <div class="profil-container">
@@ -58,6 +59,7 @@
                                     <?= e('Posté le ' . (isset($msg['date_commentaire']) ? date('d/m/Y à H:i', strtotime($msg['date_commentaire'])) : '')) ?>
                                 </span>
                                 <p class="historique-message"><?= e($msg['commentaire']) ?></p>
+                                <div class="separate-line"></div>
                             </div>
                         <?php endforeach; ?>
                     <?php else: ?>

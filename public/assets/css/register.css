@@ -2,7 +2,6 @@
 * ****************************************************** CONNEXION/INSCRIPTION ******************************************************
 */
 
-
 .register-container {
   max-width: 400px;
   margin: 40px auto;
@@ -62,7 +61,6 @@
   background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
-
 /*
 * ****************************************************** PROFIL ******************************************************
 */
@@ -111,7 +109,9 @@
   padding: 0 18px 22px 18px;
 }
 
-.tab-input { display: none; }
+.tab-input {
+  display: none;
+}
 
 .tab-label {
   display: inline-block;
@@ -133,7 +133,7 @@
   background: #fff;
   color: #333;
   border-color: #dfe3ff;
-  box-shadow: 0 -2px 8px rgba(102,126,234,0.08);
+  box-shadow: 0 -2px 8px rgba(102, 126, 234, 0.08);
 }
 
 .tab-panels {
@@ -142,13 +142,22 @@
   background: #fff;
   margin-top: -1px;
   padding: 18px;
+  overflow-wrap: break-word;
+  max-height: 800px;
+  overflow-y: scroll;
 }
 
-.tab-content { display: none; }
+.tab-content {
+  display: none;
+}
 
 /* Affichage conditionnel des panneaux */
-#tab-edit:checked ~ .tab-panels .edit { display: block; }
-#tab-history:checked ~ .tab-panels .history { display: block; }
+#tab-edit:checked ~ .tab-panels .edit {
+  display: block;
+}
+#tab-history:checked ~ .tab-panels .history {
+  display: block;
+}
 
 .section-title {
   margin: 6px 0 16px 0;
@@ -157,7 +166,9 @@
 }
 
 /* Formulaire d'édition */
-.edit-form { max-width: 640px; }
+.edit-form {
+  max-width: 640px;
+}
 
 .form-row {
   display: grid;
@@ -166,45 +177,35 @@
   margin-bottom: 14px;
 }
 
-.field label { display: block; margin-bottom: 6px; color: #333; font-weight: 500; }
-.field .form-input { width: 100%; }
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-weight: 500;
+}
+.field .form-input {
+  width: 100%;
+}
 
-.actions { margin-top: 10px; }
-.helper-text { margin-top: 8px; color: #6b7280; font-size: 0.9rem; }
+.actions {
+  margin-top: 10px;
+}
+.helper-text {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
 
 /* Historique */
-.history-list {
-  list-style: none;
-  margin: 0; padding: 0;
-  display: grid;
-  gap: 10px;
+.chat-messages {
+  width: 80%;
+  height: 50%;
+  max-height: 300px;
+  border: 2px solid #bc0000;
+  border-radius: 4px;
+  padding: 10px;
+  overflow-wrap: break-word;
+  overflow-x: scroll;
+  margin-bottom: 20px;
+  background-color: #6d5757;
 }
-
-.history-item {
-  display: grid;
-  grid-template-columns: 16px 1fr;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 10px;
-  background: #f8fafc;
-  border: 1px solid #ebeffa;
-  border-radius: 8px;
-}
-
-.history-item {
-  width: 10px; height: 10px;
-  border-radius: 50%;
-  background: #667eea;
-}
-
-.item-body { display: flex; justify-content: space-between; gap: 10px; }
-.item-title { color: #111827; font-weight: 600; }
-.item-date { color: #6b7280; font-size: 0.9rem; }
-
-/* Responsive */
-@media (max-width: 720px) {
-  .profile-header { align-items: flex-start; }
-  .form-row { grid-template-columns: 1fr; }
-  .item-body { flex-direction: column; align-items: flex-start; }
-}
-
