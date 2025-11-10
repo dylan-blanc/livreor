@@ -5,10 +5,10 @@
 
 // Configuration de la base de données
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'livreor');
-define('DB_USER', 'livreoradmin');
-define('DB_PASS', '8zNs?93t6');
-define('DB_CHARSET', 'utf8mb4_general_ci'); // utf8mb4_general_ci // utf8mb4 // utf8mb4_unicode_ci
+define('DB_NAME', 'livreor'); // dylan-blanc_livreor database plesk
+define('DB_USER', 'root'); // livreoradmin login plesk
+define('DB_PASS', ''); // 8zNs?93t6 mpd plesk
+define('DB_CHARSET', 'utf8mb4'); // utf8mb4_general_ci // utf8mb4 // utf8mb4_unicode_ci
 
 
 // Configuration de l'application

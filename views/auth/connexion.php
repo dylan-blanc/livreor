@@ -14,7 +14,7 @@
             <label for="password">Mot de passe</label>
             <input class="form-input" type="password" id="password" name="password" required>
         </div>
-        <button class="login-btn" type="submit">Se connecter</button>
+        <button class="register-btn" type="submit">Se connecter</button>
     </form>
     <p class="login-helper">Pas encore de compte ? <a href="<?= url('auth/inscription'); ?>">Créer un compte</a></p>
 

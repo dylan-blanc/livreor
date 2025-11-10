@@ -1,8 +1,7 @@
 <?php $title = "Profil"; ?>
 <style>
     <?php include __DIR__ . '/../../public/assets/css/register.css'; ?>
-    <?php include __DIR__ . '/../../public/assets/css/chat.css'; ?>
-</style>
+    </style>
 
 <div class="profil-container">
     <div class="profile-card">
