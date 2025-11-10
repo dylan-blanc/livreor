@@ -12,11 +12,11 @@
         </div>
         <div class="form-group">
             <label for="password">Mot de passe</label>
-            <input class="form-input" type="password" id="password" name="password" required>
+            <input class="form-input" type="password" id="password" name="password" placeholder="1 majuscule, 1 minuscule, 1 chiffre, 6 caractères minimum" required>
         </div>
         <div class="form-group">
             <label for="confirm_password">Confirmer le mot de passe</label>
-            <input class="form-input" type="password" id="confirm_password" name="confirm_password" required>
+            <input class="form-input" type="password" id="confirm_password" name="confirm_password" placeholder="Répétez le mot de passe" required>
         </div>
         <button class="register-btn" type="submit">S'inscrire</button>
     </form>
