@@ -5,14 +5,14 @@
 
 
 <div class="chat-container">
-    <h2>Bonjour, <?= isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Visiteur' ?></h2>
+    <h2>Bonjour, <?= isset($_SESSION['username']) ? e($_SESSION['username']) : 'Visiteur' ?></h2>
     <div class="chat-box" id="chatBox">
         <div class="chat-messages">
             <?php if (!empty($messages)): ?>
                 <?php foreach ($messages as $msg): ?>
                     <div class="chat-message">
                         <span class="chat-date"><?= e('Posté le ' . $msg['date_commentaire_formatee']) . ' Par : ' ?></span>
-                        <strong><?= e($msg['login']) ?> :</strong>
+                        <strong><?= e($msg['login']) ?> </strong>
                         <p><?= e($msg['commentaire']) ?></p>
                    <p class="separate-line"></p>
 

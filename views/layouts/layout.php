@@ -239,21 +239,21 @@ if (isset($_SESSION['username'])) {
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
         </div>
         <nav class="navbar">
+            <div class="nav-brand">
+                <a href="<?= url(); ?>"><?= APP_NAME; ?></a>
+            </div>
             <div class="nav-container">
-                <div class="nav-brand">
-                    <a href="<?= url(); ?>"><?= APP_NAME; ?></a>
-                </div>
 
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="<?= url(); ?>">Accueil</a></li>
                     <?php if (is_logged_in()): ?>
-                        <li><a href="<?= url('home/chat'); ?>">Chat</a></li>
+                        <li><a href="<?= url('home/chat'); ?>">Messages</a></li>
                         <li><a href="<?= url('auth/profil'); ?>">Profil</a></li>
                         <li><a href="<?= url('auth/deconnexion'); ?>">Déconnexion</a></li>
                     <?php else: ?>
-                        <li><a href="<?= url('home/chat'); ?>">Chat</a></li>
+                        <li><a href="<?= url('home/chat'); ?>">Messages</a></li>
                         <li><a href="<?= url('auth/inscription'); ?>">Inscription</a></li>
                         <li><a href="<?= url('auth/connexion'); ?>">Connexion</a></li>
                     <?php endif; ?>
