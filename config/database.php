@@ -5,14 +5,14 @@
 
 // Configuration de la base de données
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'livreor'); // dylan-blanc_livreor database plesk
-define('DB_USER', 'root'); // livreoradmin login plesk
-define('DB_PASS', ''); // 8zNs?93t6 mpd plesk
+define('DB_NAME', 'dylan-blanc_livreor'); // dylan-blanc_livreor database plesk
+define('DB_USER', 'livreoradmin'); // livreoradmin login plesk
+define('DB_PASS', '8zNs?93t6'); // 8zNs?93t6 mpd plesk
 define('DB_CHARSET', 'utf8mb4'); // utf8mb4_general_ci // utf8mb4 // utf8mb4_unicode_ci
 
 
 // Configuration de l'application
-define('BASE_URL', 'http://localhost/livreor/public/');
+define('BASE_URL', 'https://dylan-blanc.students-laplateforme.io/livreor/');
 define('APP_NAME', 'Livreor');
 define('APP_VERSION', '1.0.0');
 
